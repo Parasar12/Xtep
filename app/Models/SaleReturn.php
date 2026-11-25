@@ -1,0 +1,29 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class SaleReturn extends Model
+{
+    protected $table = "sales_return";
+    protected $guarded = [];
+    public $timestamps = false;
+
+    public function orderDetails()
+    {
+        return $this->hasMany(OrderDetail::class,'order_id');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function shippingMethod()
+    {
+        return $this->belongsTo(ShippingMethod::class);
+    }
+
+}

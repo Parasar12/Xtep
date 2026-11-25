@@ -1,0 +1,19 @@
+.overlay {
+    display: none;
+}
+
+.overlay.show {
+    display: block;
+    position: fixed;
+    z-index: 100000;
+    background-image: url("../spinner.gif");
+    background-color: #666;
+    opacity: 0.8;
+    background-repeat: no-repeat;
+    background-position: center;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    top: 0;
+    background-size: 18vh;
+}

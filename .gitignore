@@ -1,0 +1,44 @@
+### Laravel template
+/vendor/
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Laravel 4 specific
+bootstrap/compiled.php
+app/storage/
+
+# Laravel 5 & Lumen specific
+
+# public/hot
+
+# Laravel 5 & Lumen specific with changed public path
+#public_html/storage
+public_html/hot
+
+storage/*.key
+.env
+Homestead.yaml
+Homestead.json
+/.vagrant
+.phpunit.result.cache
+
+# Local-only files (added for xtep repo)
+.env.*
+!.env.example
+*.bak
+*.bak-*
+*.bak.*
+/storage/backups/
+/storage/logs/*.log
+/storage/*.key
+error_log
+*.sql
+*.sql.gz
+xtep_backups/
+/public/storage
+/public/hot
+.idea/
+.vscode/
+Thumbs.db
+.DS_Store
