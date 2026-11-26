@@ -430,7 +430,19 @@
             @endif
         @endforeach
 
-        {{-- ================= REVIEWS (Elfsight) ================= --}}
+        {{-- ================= REVIEWS (Xtep Nepal - Newroad Showroom, Google) ================= --}}
+        {{-- Reviews copied from the Google listing on 2026-11-25. Update the list below when new reviews come in. --}}
+        @php
+            $xtGoogleUrl = 'https://maps.google.com/?cid=17519356949490562588';
+            $xtRating = 3.8;
+            $xtReviewCount = 13;
+            $xtReviews = [
+                ['name' => 'Kushal Tiwari', 'stars' => 5, 'when' => '3 years ago', 'text' => 'Reasonable price, best quality, variety of different sizes and outfits.'],
+                ['name' => 'Radhe', 'stars' => 5, 'when' => '2 years ago', 'text' => 'Very nice shoes, more comfortable shoes. Try to buy one more.'],
+                ['name' => 'Shishir Subedi', 'stars' => 4, 'when' => 'a year ago', 'text' => 'Good, gave in some discounts as well. Shoes are great.'],
+                ['name' => 'Pushpa Raj Adhikari', 'stars' => 4, 'when' => '4 years ago', 'text' => 'It\'s the authorized showroom of Xtep products in Nepal.'],
+            ];
+        @endphp
         <section class="xt-section">
             <div class="xt-wrap">
                 <div class="xt-head">
@@ -438,8 +450,34 @@
                         <span class="xt-eyebrow">Reviews</span>
                         <h2 class="xt-title">What runners say</h2>
                     </div>
+                    <a class="xt-btn xt-btn--red" href="{{ $xtGoogleUrl }}" target="_blank" rel="noopener">Review us on Google</a>
                 </div>
-                <div class="elfsight-app-ad007e2c-9910-46d6-beee-93a3a0fedcf5" data-elfsight-app-lazy></div>
+
+                <div class="xt-reviews__summary">
+                    <span class="xt-reviews__score">{{ number_format($xtRating, 1) }}</span>
+                    <span class="xt-reviews__stars" aria-label="{{ $xtRating }} out of 5 stars">
+                        @for ($i = 1; $i <= 5; $i++)<span class="{{ $i <= round($xtRating) ? 'is-on' : '' }}">&#9733;</span>@endfor
+                    </span>
+                    <a href="{{ $xtGoogleUrl }}" target="_blank" rel="noopener">{{ $xtReviewCount }} Google reviews &middot; Xtep Nepal, Newroad Showroom</a>
+                </div>
+
+                <div class="xt-reviews__grid">
+                    @foreach ($xtReviews as $review)
+                        <div class="xt-reviews__card">
+                            <div class="xt-reviews__stars" aria-label="{{ $review['stars'] }} out of 5 stars">
+                                @for ($i = 1; $i <= 5; $i++)<span class="{{ $i <= $review['stars'] ? 'is-on' : '' }}">&#9733;</span>@endfor
+                            </div>
+                            <p class="xt-reviews__text">&ldquo;{{ $review['text'] }}&rdquo;</p>
+                            <div class="xt-reviews__who">
+                                <span class="xt-reviews__avatar">{{ mb_substr($review['name'], 0, 1) }}</span>
+                                <div>
+                                    <strong>{{ $review['name'] }}</strong>
+                                    <small>Google review &middot; {{ $review['when'] }}</small>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
             </div>
         </section>
 
@@ -453,12 +491,15 @@
                     </div>
                 </div>
                 <div class="xt-pay">
-                    <div class="xt-pay__item"><img title="Khalti" alt="Khalti" loading="lazy"
-                            src="https://english.onlinekhabar.com/wp-content/uploads/2022/02/khalti-digital-wallet-1024x425.png"></div>
-                    <div class="xt-pay__item"><img title="Esewa" alt="Esewa" loading="lazy"
-                            src="https://www.cogenthealth.com.np/images/esewa.png"></div>
-                    <div class="xt-pay__item"><img title="Connect IPS" alt="Connect IPS" loading="lazy"
-                            src="https://citizenlifenepal.com/wp-content/uploads/2020/05/connectips.png"></div>
+                    {{-- Hidden for now: Khalti --}}
+                    {{-- <div class="xt-pay__item"><img title="Khalti" alt="Khalti" loading="lazy"
+                            src="https://english.onlinekhabar.com/wp-content/uploads/2022/02/khalti-digital-wallet-1024x425.png"></div> --}}
+                    {{-- Hidden for now: Esewa --}}
+                    {{-- <div class="xt-pay__item"><img title="Esewa" alt="Esewa" loading="lazy"
+                            src="https://www.cogenthealth.com.np/images/esewa.png"></div> --}}
+                    {{-- Hidden for now: Connect IPS --}}
+                    {{-- <div class="xt-pay__item"><img title="Connect IPS" alt="Connect IPS" loading="lazy"
+                            src="https://citizenlifenepal.com/wp-content/uploads/2020/05/connectips.png"></div> --}}
                     <div class="xt-pay__item"><img title="Fonepay" alt="Fonepay" loading="lazy"
                             src="https://www.fiscalnepal.com/wp-content/uploads/2021/08/fonepay_logo.png"></div>
                     <div class="xt-pay__item"><img title="Cash on Delivery" alt="Cash on Delivery" loading="lazy"
@@ -471,7 +512,6 @@
 @endsection
 
 @section('script')
-    <script src="https://static.elfsight.com/platform/platform.js" async></script>
     <script>
         (function () {
             // Hero slider

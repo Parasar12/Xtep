@@ -95,7 +95,8 @@
     <div class="xt-footer__bottom">
         <div class="xt-wrap">
             <p>{!! getFooterText() ?: '&copy; ' . date('Y') . ' ' . e(getSiteTitle()) !!}</p>
-            <p>Secure payments with eSewa, Khalti, Fonepay, ConnectIPS and cash on delivery</p>
+            {{-- Khalti, eSewa and ConnectIPS hidden for now --}}
+            <p>Secure payments with Fonepay and cash on delivery</p>
         </div>
     </div>
 </footer>

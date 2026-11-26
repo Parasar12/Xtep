@@ -80,6 +80,15 @@
                       </div>
 
                       <div class="mb-3 row">
+                          <label for="map_link" class="col-md-2 col-form-label"> Google Map Embed Link</label>
+                          <div class="col-md-10">
+                            <input class="form-control" type="text" placeholder="https://www.google.com/maps/embed?pb=..." id="map_link" name="map_link" value="{{ \App\Models\GeneralSetting::where('key', 'map_link')->value('value') }}">
+                            <small class="text-muted">Map on the Contact Us page. In Google Maps open the place, Share &gt; Embed a map &gt; Copy HTML, and paste only the src="..." link here.</small>
+                            <span class="text-danger map_link_error"></span>
+                          </div>
+                      </div>
+
+                      <div class="mb-3 row">
                         <label for="slug" class="col-md-2 col-form-label">Favicon </label>
                         <div class="col-md-8">
                           <input class="form-control" type="file" id="favload" name="favicon" accept=".ico,.png,image/x-icon,image/vnd.microsoft.icon,image/png" onclick="showSelectedFav(event)">

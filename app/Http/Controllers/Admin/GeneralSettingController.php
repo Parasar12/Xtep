@@ -67,6 +67,15 @@ class GeneralSettingController extends Controller
         'value' => $request->fb_page_link
       ]);
 
+      // Google Map shown on the Contact Us page. Only saved when filled in.
+      if ($request->filled('map_link')) {
+        if (GeneralSetting::where('key', 'map_link')->exists()) {
+          GeneralSetting::where('key', 'map_link')->update(['value' => trim($request->map_link)]);
+        } else {
+          GeneralSetting::insert(['key' => 'map_link', 'value' => trim($request->map_link)]);
+        }
+      }
+
       GeneralSetting::where('key', 'bill_footer_text')->update([
         'value' => $request->bill_footer_text
       ]);
